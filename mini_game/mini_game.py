@@ -14,8 +14,8 @@ pygame.mixer.init()
 
 # Criando a tela do jogo
 
-WIDTH = 1000
-HEIGHT = 1000
+WIDTH = 800
+HEIGHT = 800
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Mini_game')
 
@@ -33,8 +33,8 @@ dic_recursos['fundo'] = pygame.image.load('img/background_prototipo.png').conver
 dic_recursos['fundo'] = pygame.transform.scale(dic_recursos['fundo'], (WIDTH, HEIGHT))
 dic_recursos['zombie_img'] = pygame.image.load('img/zombie_prototipo.png').convert_alpha()
 dic_recursos['zombie_img'] = pygame.transform.scale(dic_recursos['zombie_img'], (ZOMBIE_WIDTH, ZOMBIE_HEIGHT))
-dic_recursos['sobrevivente_img'] = pygame.image.load('img/player_prototipo.png').convert_alpha()
-dic_recursos['sobreviviente_img'] = pygame.transform.scale(dic_recursos['sobrevivente_img'], (SURVIVOR_WIDTH, SURVIVOR_HEIGHT))
+dic_recursos['sobrevivente_img'] = pygame.image.load('img/Player_test1.png').convert_alpha()
+dic_recursos['sobrevivente_img'] = pygame.transform.scale(dic_recursos['sobrevivente_img'], (SURVIVOR_WIDTH, SURVIVOR_HEIGHT))
 dic_recursos['tiro_1'] = pygame.image.load('img/tiro_cima.png').convert_alpha()
 dic_recursos['tiro_1'] = pygame.transform.scale(dic_recursos['tiro_1'], (BALA_WIDTH, BALA_HEIGTH))
 
@@ -173,7 +173,7 @@ class Sobrevivente(pygame.sprite.Sprite):
     def __init__(self, groups, assets):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = dic_recursos['sobreviviente_img']
+        self.image = dic_recursos['sobrevivente_img']
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH / 2
