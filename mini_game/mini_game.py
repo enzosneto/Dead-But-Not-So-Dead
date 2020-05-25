@@ -14,8 +14,8 @@ pygame.mixer.init()
 
 # Criando a tela do jogo
 
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 1000
+HEIGHT = 1000
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Mini_game')
 
