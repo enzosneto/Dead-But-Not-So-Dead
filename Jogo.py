@@ -49,7 +49,6 @@ def load_recursos():
     recursos['button'] = pygame.transform.scale(recursos['button'], (WIDTH_BUTTON, HEIGHT_BUTTON)) 
     
     return recursos
-
 class Caixa_de_texto(pygame.sprite.Sprite):
     def __init__(self, recursos):
         
