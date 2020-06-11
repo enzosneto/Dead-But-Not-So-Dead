@@ -172,8 +172,8 @@ def tela_jogo(window):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 px = event.pos[0]
                 py = event.pos[1]
-                print(px)
-                print(py)
+                #print(px)
+                #print(py)
                 if contagem_txt == 1:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
 
@@ -185,42 +185,55 @@ def tela_jogo(window):
                         contagem_txt = 3
                         
                 elif contagem_txt == 3:
-                    if px > 16 and px < 266 and py > 590 and py < 520:
+                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
                         contagem_txt = 4
                     
-                    #elif px > 277 and px < 523 and py > 590 and py < 520:
+                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
                         
-                   #     contagem_txt = 4
+                        contagem_txt = 4
                     
-                    #elif px > 537 and px < 784 and py > 590 and py < 520:
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
                         
-                     #   contagem_txt = 4
-                
-              #  elif contagem_txt == 4:
-               #     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
+                        contagem_txt = 4               
                         
                 #Aumenta o contador do texto para mudar o que aparece escrito
                 elif contagem_txt == 4:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                         contagem_txt = 5
+                        contagem_txt = 5
+                    
+                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
+                        
+                        contagem_txt = 5
+                    
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                        contagem_txt = 5 
                          
                 elif contagem_txt == 5:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
 
                         contagem_txt = 6
                         
-                elif contagem_txt == 6:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                elif contagem_txt == 6:   
+                    if px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
                         
-                         contagem_txt = 7
+                        contagem_txt = 8
+                    
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                        contagem_txt = 7 
                          
                 elif contagem_txt == 7:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 8
+                         contagem_txt = 7.5
+                         
+                elif contagem_txt == 7.5:
+                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                        
+                         contagem_txt = 10    
                          
                 elif contagem_txt == 8:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -235,12 +248,25 @@ def tela_jogo(window):
                 elif contagem_txt == 10:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
+                         contagem_txt = 10.5
+                
+                elif contagem_txt == 10.5:
+                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                        
                          contagem_txt = 11
                 
                 elif contagem_txt == 11:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                         contagem_txt = 12
+                        contagem_txt = 12
+                    
+                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
+                        
+                        contagem_txt = 12
+                    
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                        contagem_txt = 12 
                          
                 elif contagem_txt == 12:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -248,9 +274,17 @@ def tela_jogo(window):
                          contagem_txt = 13
                         
                 elif contagem_txt == 13:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                         contagem_txt = 14
+                        contagem_txt = 14
+                    
+                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
+                        
+                        contagem_txt = 14
+                    
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                        contagem_txt = 14
                          
                 elif contagem_txt == 14:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -277,9 +311,17 @@ def tela_jogo(window):
                         
                          contagem_txt = 19
                 elif contagem_txt == 19:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                         contagem_txt = 20
+                        contagem_txt = 20
+                    
+                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
+                        
+                        contagem_txt = 20
+                    
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                        contagem_txt = 20
 
                 elif contagem_txt == 20:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -536,13 +578,13 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
         if contagem_txt == 6:
-            dialogo_1_1 = 'Ir investigar'
+            dialogo_1_1 = 'Escolha uma opção: '
             dialogo_1_2 = ''
             
-            dialogo_2_1 = 'Ir embora'
+            dialogo_2_1 = 'Ir investigar'
             dialogo_2_2 = ''
             
-            dialogo_3_1 = ''
+            dialogo_3_1 = 'Ir embora'
             dialogo_3_2 = ''
             
             text_1 = 'Papai estou com medo!'
@@ -554,7 +596,45 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-            #Opção de ir investigar o posto começa
+        if contagem_txt == 7:
+            dialogo_1_1 = ''
+            dialogo_1_2 = ''
+            
+            dialogo_2_1 = ''
+            dialogo_2_2 = ''
+            
+            dialogo_3_1 = ''
+            dialogo_3_2 = ''
+            
+            text_1 = 'O rádio deve ter te afetado um pouco, você decide parar de abastecer pra sair de onde estão e voltar para casa.'
+            text_2 = 'Mas quando liga o carro, vê pessoas com a pele deformada e as bocas ensanguentadas saindo de dentro da loja'
+            text_3 = 'e correndo em sua direção.'
+            text_4 = ''
+            text_5 = ''
+            text_6 = ''
+            text_7 = ''
+            text_8 = ''
+            text_9 = ''
+        if contagem_txt == 7.5:
+            dialogo_1_1 = ''
+            dialogo_1_2 = ''
+            
+            dialogo_2_1 = ''
+            dialogo_2_2 = ''
+            
+            dialogo_3_1 = ''
+            dialogo_3_2 = ''
+            
+            text_1 = 'Ao ver isso, você liga o carro o mais rápido que consegue. Quando consegue engatar a primeira marcha '
+            text_2 = 'é surpreendido quando uma dessas “pessoas” bate contra o seu vidro e outra contra o vidro no porta malas.'
+            text_3 = 'Sem pensar duas vezes, você pisa fundo no acelerador escapa do posto'
+            text_4 = ''
+            text_5 = ''
+            text_6 = ''
+            text_7 = ''
+            text_8 = ''
+            text_9 = ''
+        #Opção de ir investigar o posto começa
         if contagem_txt == 8:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
@@ -607,7 +687,26 @@ def tela_jogo(window):
             text_1 = 'Seguindo a instrução do aviso no rádio, você decide ir para sua xácara (uma pequena fazenda), podendo assim'
             text_2 = 'se afastar o maximo possivel da cidade'
             text_3 = ''
-            text_4 = 'Chegando na sua fazenda, você e sua filha se trancam desesperadamente dentro de casa.'
+            text_4 = ''
+            text_5 = ''
+            text_6 = ''
+            text_7 = ''
+            text_8 = ''
+            text_9 = ''
+        if contagem_txt == 10.5: # mudar imagem para fazenda
+            dialogo_1_1 = ''
+            dialogo_1_2 = ''
+            
+            dialogo_2_1 = ''
+            dialogo_2_2 = ''
+            
+            dialogo_3_1 = ''
+            dialogo_3_2 = ''
+            
+            text_1 = 'Chegando na sua fazenda, você e sua filha se trancam desesperadamente dentro de casa.'
+            text_2 = ''
+            text_3 = ''
+            text_4 = ''
             text_5 = ''
             text_6 = ''
             text_7 = ''
@@ -659,7 +758,7 @@ def tela_jogo(window):
             dialogo_2_2 = ''
             
             dialogo_3_1 = 'Sempre quis atirar'
-            dialogo_3_2 = ''
+            dialogo_3_2 = 'esse bebe aqui'
             
             text_1 = 'Você lembra que tem uma 1911 9mm (pistola) guardada em caso de emergências. Você acredita que agora é uma'
             text_2 = 'emergência e pega ela, e depois se dirige para sua porta'
@@ -681,7 +780,7 @@ def tela_jogo(window):
             dialogo_3_1 = ''
             dialogo_3_2 = ''
             
-            text_1 = 'Para andar com o personagem aperte AWSD, e para atirar as setas'
+            text_1 = 'Para andar com o personagem aperte as teclas AWSD, e para atirar as setas'
             text_2 = ''
             text_3 = ''
             text_4 = ''
@@ -722,8 +821,8 @@ def tela_jogo(window):
             
             text_1 = '1 ano se passou desde o incidente do posto. Esse tempo inteiro você e sua filha conseguiram sobreviver'
             text_2 = 'com os suprimentos que você mantinha em casa, mas ultimamente você percebe que eles estão acabando.'
-            text_3 = ''
-            text_4 = ''
+            text_3 = 'Em uma manhã de domingo, você faz sua rotina diária de verificar a tv e o rádio. Como de costume só se'
+            text_4 = 'escuta estática. Depois de algumas horas você é surpreendido com uma transmissão do rádio.'
             text_5 = ''
             text_6 = ''
             text_7 = ''
@@ -739,10 +838,10 @@ def tela_jogo(window):
             dialogo_3_1 = ''
             dialogo_3_2 = ''
             
-            text_1 = 'Em uma manhã de domingo, você faz sua rotina diária de verificar a tv e o rádio. Como de costume só se'
-            text_2 = 'escuta estática. Depois de algumas horas você é surpreendido com uma transmissão do rádio.'
-            text_3 = ''
-            text_4 = ''
+            text_1 = 'Aqui quem fala é o Coronel Marcus Fenix, das forças armadas dos Estados Unidos. Eu e meus homens estamos'
+            text_2 = 'estacionados ao norte do Canada. Descobrimos que os infectados acabam morrendo em condiçõesde frio'
+            text_3 = 'extremo. Assim, para qualquer um que essa mensagem possa encontrar, você terá um lugar aqui conosco'
+            text_4 = 'Que Deus nos ajude nesses tempos difíceis e boa sorte a todos'
             text_5 = ''
             text_6 = ''
             text_7 = ''
@@ -758,10 +857,10 @@ def tela_jogo(window):
             dialogo_3_1 = ''
             dialogo_3_2 = ''
             
-            text_1 = 'Aqui quem fala é o Coronel Marcus Fenix, das forças armadas dos Estados Unidos. Eu e meus homens estamos'
-            text_2 = 'estacionados ao norte do Canada. Descobrimos que os infectados acabam morrendo em condiçõesde frio'
-            text_3 = 'extremo. Assim, para qualquer um que essa mensagem possa encontrar, você terá um lugar aqui conosco'
-            text_4 = 'Que Deus nos ajude nesses tempos difíceis e boa sorte a todos'
+            text_1 = 'Depois de ouvir essa mensagem e notar a falta de suprimentos na sua casa, você tem uma ideia do que'
+            text_2 = 'terá que fazer para sobreviver e faz um plano.'
+            text_3 = ''
+            text_4 = ''
             text_5 = ''
             text_6 = ''
             text_7 = ''
@@ -786,7 +885,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 20:
+        if contagem_txt == 19:
             dialogo_1_1 = 'Sim, exatamene'
             dialogo_1_2 = ''
             
@@ -798,6 +897,25 @@ def tela_jogo(window):
             
             text_1 = 'A gente vai fazer aquele plano mesmo? Vamos ir de carro ate o Canada para encontrar o Coronel'
             text_2 = 'coletando suprimentos ao longo do caminho?'
+            text_3 = ''
+            text_4 = ''
+            text_5 = ''
+            text_6 = ''
+            text_7 = ''
+            text_8 = ''
+            text_9 = ''
+        if contagem_txt == 20:
+            dialogo_1_1 = ''
+            dialogo_1_2 = ''
+            
+            dialogo_2_1 = ''
+            dialogo_2_2 = ''
+            
+            dialogo_3_1 = ''
+            dialogo_3_2 = ''
+            
+            text_1 = ''
+            text_2 = ''
             text_3 = ''
             text_4 = ''
             text_5 = ''
@@ -1338,25 +1456,6 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
         if contagem_txt == 49:
-            dialogo_1_1 = ''
-            dialogo_1_2 = ''
-            
-            dialogo_2_1 = ''
-            dialogo_2_2 = ''
-            
-            dialogo_3_1 = ''
-            dialogo_3_2 = ''
-            
-            text_1 = ''
-            text_2 = ''
-            text_3 = ''
-            text_4 = ''
-            text_5 = ''
-            text_6 = ''
-            text_7 = ''
-            text_8 = ''
-            text_9 = ''
-        if contagem_txt == 50:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
