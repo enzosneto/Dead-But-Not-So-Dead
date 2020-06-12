@@ -94,7 +94,10 @@ def load_recursos():
     recursos['button'] = pygame.image.load('imgs/button.png').convert()
     recursos['button'] = pygame.transform.scale(recursos['button'], (WIDTH_BUTTON, HEIGHT_BUTTON)) 
     
+    #colocar as imagens aqui, copiar o do posto de gasolina linha 2248
     recursos['posto_gasolina_1'] = pygame.image.load('imgs/1.png').convert()
+    #esse da capa eh um teste
+    recursos['teste'] = pygame.image.load('imgs/capa.png').convert()
     
     return recursos
 
@@ -162,7 +165,6 @@ def tela_jogo(window):
     all_sprites.add(button_2)
     all_sprites.add(button_3)
     
-    contagem_img = 1 # Serve para mudar as imgs de fundo
     contagem_txt = 1 # Serve para mudar os textos
     contagem_filha = 1 #Serve para acabar o jogo caso a filha fique brava
     game = True
@@ -234,7 +236,7 @@ def tela_jogo(window):
                 elif contagem_txt == 7.5:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 10    
+                         contagem_txt = 8
                          
                 elif contagem_txt == 8:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -448,9 +450,17 @@ def tela_jogo(window):
                          contagem_txt = 40
                         
                 elif contagem_txt == 40:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                         contagem_txt = 41
+                        contagem_txt = 41
+                    
+                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
+                        
+                        contagem_txt = 41
+                    
+                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                        contagem_txt = 41
                          
                 elif contagem_txt == 41:
                     if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
@@ -513,11 +523,6 @@ def tela_jogo(window):
                          contagem_txt = 48
                          
                 elif contagem_txt == 48:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
-                         contagem_txt = 49
-                         
-                elif contagem_txt == 49:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
                          contagem_txt = 50
@@ -602,6 +607,11 @@ def tela_jogo(window):
                     elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
                         
                         contagem_txt = 59
+                        
+                elif contagem_txt == 58:
+                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                        
+                         contagem_txt = 59
                         
                 elif contagem_txt == 59:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -707,15 +717,7 @@ def tela_jogo(window):
                         
                         #vai pro final
                 elif contagem_txt == 68:
-                    if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
-                        
-                        contagem_txt = 72
-                    
-                    elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
-                        
-                        contagem_txt = 72
-                    
-                    elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
                         contagem_txt = 72
                     
@@ -2038,7 +2040,7 @@ def tela_jogo(window):
             text_9 = ''
             #COntinua com resposta 1 e 2
         if contagem_txt == 66:
-            if contagem_filha >= 3:
+            if contagem_filha <= 3:
                 dialogo_1_1 = 'Você tem que fazer isso,'
                 dialogo_1_2 = 'é pelo seu bem'
             
@@ -2058,13 +2060,13 @@ def tela_jogo(window):
                 text_8 = ''
                 text_9 = ''
             else:
-                dialogo_1_1 = ''
+                dialogo_1_1 = 'Te amo'
                 dialogo_1_2 = ''
             
-                dialogo_2_1 = ''
+                dialogo_2_1 = 'Voce é forte, sempre foi'
                 dialogo_2_2 = ''
             
-                dialogo_3_1 = ''
+                dialogo_3_1 = 'Adeus'
                 dialogo_3_2 = ''
             
                 text_1 = '"Está bem, até nunca mais velhote"'
@@ -2105,7 +2107,7 @@ def tela_jogo(window):
             dialogo_3_1 = ''
             dialogo_3_2 = ''
             
-            text_1 = 'Ela te da uma ultima olhada e segue ate sumir da sua vista, você sabe que ela nunca vai voltar'
+            text_1 = 'Ela te da uma ultima olhada e segue ate sumir da sua vista, você sabe que nunca vão se ver novamente'
             text_2 = ''
             text_3 = ''
             text_4 = ''
@@ -2136,7 +2138,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
         if contagem_txt == 70:
-            if contagem_filha >= 3:
+            if contagem_filha <= 3:
                 dialogo_1_1 = '*dar a pistola*'
                 dialogo_1_2 = ''
             
@@ -2236,11 +2238,17 @@ def tela_jogo(window):
             text_9 = ''
         
         all_sprites.update()
-        
-        window.fill(BLACK)
-        window.blit(recursos['posto_gasolina_1'], (0, 0))
-        all_sprites.draw(window)
-        
+        #formula para fazer a imagem linha 97
+        if contagem_txt < 3:
+            window.fill(BLACK)
+            window.blit(recursos['posto_gasolina_1'], (0, 0))
+            all_sprites.draw(window)
+            #teste
+        if contagem_txt >= 3:
+            window.fill(BLACK)
+            window.blit(recursos['teste'], (0, 0))
+            all_sprites.draw(window)
+        #ate aqui
         draw_text(window, dialogo_1_1, TEXT_SIZE, DIALOGO_WIDTH_1_1, DIALOGO_HEIGHT_1_1)
         draw_text(window, dialogo_1_2, TEXT_SIZE, DIALOGO_WIDTH_1_2, DIALOGO_HEIGHT_1_2)
         
