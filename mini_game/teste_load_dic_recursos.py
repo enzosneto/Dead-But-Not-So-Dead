@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jun  4 02:28:16 2020
+Created on Fri Jun 12 17:29:41 2020
 
 @author: pedro
 """
 
 import pygame
 import os
-from teste_config import WIDTH, HEIGHT, ZOMBIE_WIDTH, ZOMBIE_HEIGHT, SURVIVOR_WIDTH, SURVIVOR_HEIGHT, BALA_WIDTH, BALA_HEIGTH, IMG_DIR
+from teste_config import WIDTH, HEIGHT, ZOMBIE_WIDTH, ZOMBIE_HEIGHT, SURVIVOR_WIDTH, SURVIVOR_HEIGHT, BALA_WIDTH, BALA_HEIGTH, CAIXA_WIDTH, CAIXA_HEIGTH, IMG_DIR
 
 # Cria os recursos do minigame
 
@@ -26,6 +26,8 @@ TIRO_3 = 'tiro_3'
 TIRO_4 = 'tiro_4'
 TIRO_4 = 'tiro_4'
 SANGUE_ANIM = 'sangue_anim'
+CAIXA = 'caixa'
+AMMO =  'ammo'
 
 def load_dic_recursos():
     dic_recursos = {}
@@ -47,6 +49,10 @@ def load_dic_recursos():
 
     dic_recursos[TIRO_4] = pygame.image.load(os.path.join(IMG_DIR, 'tiro_esquerda.png')).convert_alpha()
     dic_recursos[TIRO_4] = pygame.transform.scale(dic_recursos['tiro_4'], (BALA_WIDTH, BALA_HEIGTH))
+    
+    dic_recursos[CAIXA] = pygame.image.load(os.path.join(IMG_DIR, 'caixa.png')).convert()
+    dic_recursos[CAIXA] = pygame.transform.scale(dic_recursos['caixa'], (CAIXA_WIDTH, CAIXA_HEIGTH))
+    dic_recursos[AMMO] = pygame.font.Font('fontes/ammo_font.ttf', 28)
     
     # Animação da morte
 

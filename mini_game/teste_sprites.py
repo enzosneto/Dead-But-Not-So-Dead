@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jun  4 02:26:47 2020
+Created on Fri Jun 12 17:30:48 2020
 
 @author: pedro
 """
@@ -8,9 +8,22 @@ Created on Thu Jun  4 02:26:47 2020
 import random
 import pygame
 from teste_config import WIDTH, HEIGHT, ZOMBIE_WIDTH, ZOMBIE_HEIGHT
-from teste_load_dic_recursos import ZOMBIE_IMG, SOBREVIVENTE_IMG, TIRO_1, TIRO_2, TIRO_3, TIRO_4, SANGUE_ANIM
+from teste_load_dic_recursos import ZOMBIE_IMG, SOBREVIVENTE_IMG, TIRO_1, TIRO_2, TIRO_3, TIRO_4, SANGUE_ANIM, CAIXA, AMMO
 
 # Criando as classes
+
+# Caixa da munição
+class Caixa(pygame.sprite.Sprite): 
+    def __init__(self, dic_recursos):
+
+        pygame.sprite.Sprite.__init__(self)
+
+        self.image = dic_recursos[CAIXA]
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
+        self.rect.right = WIDTH
+        self.rect.top = 0
+        self.dic_recursos = dic_recursos
 
 #       Zombies
 class Zombie(pygame.sprite.Sprite):
@@ -155,64 +168,28 @@ class Sobrevivente(pygame.sprite.Sprite):
             self.rect.bottom = HEIGHT
 
     def shoot_1(self):
-        # Verifica se pode atirar
-        now = pygame.time.get_ticks()
-        # Verifica quantos ticks se passaram desde o último tiro.
-        elapsed_ticks = now - self.last_shot
-
-        # Se já pode atirar novamente...
-        if elapsed_ticks > self.shoot_ticks:
-            # Marca o tick da nova imagem.
-            self.last_shot = now
-            # A nova bala vai ser criada logo acima e no centro horizontal da nave
-            new_bullet_1 = Bullet_1(self.dic_recursos, self.rect.top, self.rect.centerx)
-            self.groups['all_sprites'].add(new_bullet_1)
-            self.groups['all_bullets_1'].add(new_bullet_1)
+        # A nova bala vai ser criada logo acima e no centro horizontal da nave
+        new_bullet_1 = Bullet_1(self.dic_recursos, self.rect.top, self.rect.centerx)
+        self.groups['all_sprites'].add(new_bullet_1)
+        self.groups['all_bullets_1'].add(new_bullet_1)
 
     def shoot_2(self):
-        # Verifica se pode atirar
-        now = pygame.time.get_ticks()
-        # Verifica quantos ticks se passaram desde o último tiro.
-        elapsed_ticks = now - self.last_shot
-
-        # Se já pode atirar novamente...
-        if elapsed_ticks > self.shoot_ticks:
-            # Marca o tick da nova imagem.
-            self.last_shot = now
-            # A nova bala vai ser criada logo acima e no centro horizontal da nave
-            new_bullet_2 = Bullet_2(self.dic_recursos, self.rect.top, self.rect.centerx)
-            self.groups['all_sprites'].add(new_bullet_2)
-            self.groups['all_bullets_2'].add(new_bullet_2)
+        # A nova bala vai ser criada logo acima e no centro horizontal da nave
+        new_bullet_2 = Bullet_2(self.dic_recursos, self.rect.top, self.rect.centerx)
+        self.groups['all_sprites'].add(new_bullet_2)
+        self.groups['all_bullets_2'].add(new_bullet_2)
             
     def shoot_3(self):
-        # Verifica se pode atirar
-        now = pygame.time.get_ticks()
-        # Verifica quantos ticks se passaram desde o último tiro.
-        elapsed_ticks = now - self.last_shot
-
-        # Se já pode atirar novamente...
-        if elapsed_ticks > self.shoot_ticks:
-            # Marca o tick da nova imagem.
-            self.last_shot = now
-            # A nova bala vai ser criada logo acima e no centro horizontal da nave
-            new_bullet_3 = Bullet_3(self.dic_recursos, self.rect.top, self.rect.centerx)
-            self.groups['all_sprites'].add(new_bullet_3)
-            self.groups['all_bullets_3'].add(new_bullet_3)
+        # A nova bala vai ser criada logo acima e no centro horizontal da nave
+        new_bullet_3 = Bullet_3(self.dic_recursos, self.rect.top, self.rect.centerx)
+        self.groups['all_sprites'].add(new_bullet_3)
+        self.groups['all_bullets_3'].add(new_bullet_3)
             
     def shoot_4(self):
-        # Verifica se pode atirar
-        now = pygame.time.get_ticks()
-        # Verifica quantos ticks se passaram desde o último tiro.
-        elapsed_ticks = now - self.last_shot
-
-        # Se já pode atirar novamente...
-        if elapsed_ticks > self.shoot_ticks:
-            # Marca o tick da nova imagem.
-            self.last_shot = now
-            # A nova bala vai ser criada logo acima e no centro horizontal da nave
-            new_bullet_4 = Bullet_4(self.dic_recursos, self.rect.top, self.rect.centerx)
-            self.groups['all_sprites'].add(new_bullet_4)
-            self.groups['all_bullets_4'].add(new_bullet_4)
+        # A nova bala vai ser criada logo acima e no centro horizontal da nave
+        new_bullet_4 = Bullet_4(self.dic_recursos, self.rect.top, self.rect.centerx)
+        self.groups['all_sprites'].add(new_bullet_4)
+        self.groups['all_bullets_4'].add(new_bullet_4)
 
 # Classe da anim de morte
 class Sangue(pygame.sprite.Sprite):

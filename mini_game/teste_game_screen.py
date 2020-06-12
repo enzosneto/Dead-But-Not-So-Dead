@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jun  4 02:24:54 2020
+Created on Fri Jun 12 17:28:41 2020
 
 @author: pedro
 """
 
 import pygame
 from teste_config import FPS, WIDTH, HEIGHT, BLACK
-from teste_load_dic_recursos import load_dic_recursos, FUNDO
-from teste_sprites import Zombie, Sobrevivente, Sangue
+from teste_load_dic_recursos import load_dic_recursos, FUNDO, AMMO
+from teste_sprites import Zombie, Sobrevivente, Sangue, Caixa
 
 def game_screen(window):
     # Variável para o ajuste de velocidade
@@ -33,7 +33,9 @@ def game_screen(window):
     
     # Criando o jogador
     player = Sobrevivente(groups, dic_recursos)
+    caixa = Caixa(dic_recursos)
     all_sprites.add(player)
+    all_sprites.add(caixa)
     
     # Criando os zombies
     for i in range(8):
@@ -44,6 +46,8 @@ def game_screen(window):
     DONE = 0
     PLAYING = 1
     state = PLAYING
+    
+    MUNICAO = 20
     
     # ===== Loop principal =====
     while state != DONE:
@@ -71,17 +75,23 @@ def game_screen(window):
                     if event.key == pygame.K_s:
                         player.speedy += 10
                 
-                    if event.key == pygame.K_UP:
-                        player.shoot_1()
+                    if MUNICAO > 0:
+                        
+                        if event.key == pygame.K_UP:
+                            MUNICAO = MUNICAO - 1
+                            player.shoot_1()
                     
-                    if event.key == pygame.K_DOWN:
-                        player.shoot_2()
+                        if event.key == pygame.K_DOWN:
+                            MUNICAO = MUNICAO - 1
+                            player.shoot_2()
 
-                    if event.key == pygame.K_RIGHT:
-                        player.shoot_3()
+                        if event.key == pygame.K_RIGHT:
+                            MUNICAO = MUNICAO - 1
+                            player.shoot_3()
 
-                    if event.key == pygame.K_LEFT:
-                        player.shoot_4()                
+                        if event.key == pygame.K_LEFT:
+                            MUNICAO = MUNICAO - 1
+                            player.shoot_4()              
                   
                 # Verifica se soltou alguma tecla.
                 if event.type == pygame.KEYUP:
@@ -152,6 +162,10 @@ def game_screen(window):
         window.blit(dic_recursos[FUNDO], (0, 0))
         # Desenhando meteoros
         all_sprites.draw(window)
+        
+        text_surface = dic_recursos[AMMO].render("munição:{:0}".format(MUNICAO), True, (255, 255, 255, 255))
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (WIDTH - 170,  20)
+        window.blit(text_surface, text_rect)
 
         pygame.display.update()  # Mostra o novo frame para o jogador
-

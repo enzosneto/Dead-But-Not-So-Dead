@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jun  4 02:29:07 2020
+Created on Fri Jun 12 17:27:32 2020
 
 @author: pedro
 """
@@ -22,6 +22,9 @@ SURVIVOR_WIDTH = 50
 SURVIVOR_HEIGHT = 38
 BALA_WIDTH = 15
 BALA_HEIGTH = 20
+
+CAIXA_WIDTH = 340
+CAIXA_HEIGTH = 70
 
 # Define algumas variáveis com as cores básicas
 WHITE = (255, 255, 255)
