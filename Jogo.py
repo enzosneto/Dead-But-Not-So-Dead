@@ -4,7 +4,7 @@ Created on Fri May 22 17:31:07 2020
 """
 
 import pygame
-
+from teste_game_screen import game_screen#, morto
 
 pygame.init()
 
@@ -202,7 +202,7 @@ def tela_jogo(window):
     all_sprites.add(button_3)
     
     contagem_txt = 0 # Serve para mudar os textos
-    contagem_filha = 1 #Serve para acabar o jogo caso a filha fique brava
+    contagem_filha = 0 #Serve para acabar o jogo caso a filha fique brava
     game = True
     while game:
         for event in pygame.event.get():
@@ -218,7 +218,7 @@ def tela_jogo(window):
                         
                         contagem_txt = 1
                         
-                if contagem_txt == 1:
+                elif contagem_txt == 1:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
 
                         contagem_txt = 2
@@ -253,6 +253,7 @@ def tela_jogo(window):
                     
                     elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
                         
+                        contagem_filha += 1
                         contagem_txt = 5 
                          
                 elif contagem_txt == 5:
@@ -334,6 +335,11 @@ def tela_jogo(window):
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
                          contagem_txt = 15
+                         game_screen(window)  # Inicia o mini game 
+                         #if morto == False:
+                          #   contagem_txt = 15
+                         #else:
+                          #   game = False
                          
                 elif contagem_txt == 15:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -366,8 +372,8 @@ def tela_jogo(window):
                     
                     elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
                         
-                        contagem_txt = 20
                         contagem_filha += 1
+                        contagem_txt = 20
 
                 elif contagem_txt == 20:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -463,8 +469,8 @@ def tela_jogo(window):
                     
                     elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
                         
-                        contagem_txt = 36
                         contagem_filha += 1
+                        contagem_txt = 36
                          
                 elif contagem_txt == 36:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -532,8 +538,8 @@ def tela_jogo(window):
                     
                     elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
                         
-                        contagem_txt = 44
                         contagem_filha += 1
+                        contagem_txt = 44
                          
                 elif contagem_txt == 44:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -836,7 +842,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
          
-        if contagem_txt == 1:
+        elif contagem_txt == 1:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -855,7 +861,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 2:
+        elif contagem_txt == 2:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -874,7 +880,7 @@ def tela_jogo(window):
             text_7 = 'Permaneçam em suas casas e fiquem atentos á futuros avisos. Que Deus ajude e abençoe o povo americano.'
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 3:
+        elif contagem_txt == 3:
             dialogo_1_1 = 'Claro, vai ficar tudo bem'
             dialogo_1_2 = ''
             
@@ -893,15 +899,15 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 4:
+        elif contagem_txt == 4:
             dialogo_1_1 = 'Eu também filha'
             dialogo_1_2 = ''
             
             dialogo_2_1 = 'Ela não gostaria que'
             dialogo_2_2 = 'ficássemos tristes'
             
-            dialogo_3_1 = 'Você não deveria pensar nisso'
-            dialogo_3_2 = ''
+            dialogo_3_1 = 'Você não deveria pensar nisso,'
+            dialogo_3_2 = 'ja falamos disso'
             
             text_1 = '"Aida sim é bem chato falar disso, já que a mamãe morreu de covid no inicio do ano. Ainda tenho muitas'
             text_2 = 'saudades dela sabe"'
@@ -912,7 +918,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 5:
+        elif contagem_txt == 5:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -931,7 +937,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 6:
+        elif contagem_txt == 6:
             dialogo_1_1 = 'Escolha uma opção: '
             dialogo_1_2 = ''
             
@@ -950,7 +956,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 7:
+        elif contagem_txt == 7:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -969,7 +975,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 7.5:
+        elif contagem_txt == 7.5:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -989,7 +995,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
         #Opção de ir investigar o posto começa
-        if contagem_txt == 8:
+        elif contagem_txt == 8:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1009,7 +1015,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #Acaba a investigação
-        if contagem_txt == 9:
+        elif contagem_txt == 9:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1028,7 +1034,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 10:
+        elif contagem_txt == 10:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1047,7 +1053,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 10.5: # mudar imagem para fazenda
+        elif contagem_txt == 10.5: # mudar imagem para fazenda
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1066,7 +1072,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 11:
+        elif contagem_txt == 11:
             dialogo_1_1 = 'Eu não faço ideia'
             dialogo_1_2 = ''
             
@@ -1085,7 +1091,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 12:
+        elif contagem_txt == 12:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1104,7 +1110,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 13:
+        elif contagem_txt == 13:
             dialogo_1_1 = 'Sai da minha casa'
             dialogo_1_2 = 'ou eu atiro'
             
@@ -1124,7 +1130,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #minigame para introdução
-        if contagem_txt == 14:
+        elif contagem_txt == 14:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1144,7 +1150,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #rola minigame e fecha
-        if contagem_txt == 15:
+        elif contagem_txt == 15:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1163,7 +1169,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 16:
+        elif contagem_txt == 16:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1182,7 +1188,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 17:
+        elif contagem_txt == 17:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1201,7 +1207,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 18:
+        elif contagem_txt == 18:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1220,7 +1226,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 19:
+        elif contagem_txt == 19:
             dialogo_1_1 = 'Sim, exatamene'
             dialogo_1_2 = ''
             
@@ -1239,7 +1245,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 20:
+        elif contagem_txt == 20:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1258,7 +1264,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 21:
+        elif contagem_txt == 21:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1277,7 +1283,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 22:
+        elif contagem_txt == 22:
             dialogo_1_1 = 'Escolha uma opção:'
             dialogo_1_2 = ''
             
@@ -1297,7 +1303,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #entrou na casa
-        if contagem_txt == 23:
+        elif contagem_txt == 23:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1316,7 +1322,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 24:
+        elif contagem_txt == 24:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1336,7 +1342,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #minigame rolando
-        if contagem_txt == 25:
+        elif contagem_txt == 25:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1356,7 +1362,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #Sai da casa
-        if contagem_txt == 26:
+        elif contagem_txt == 26:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1375,7 +1381,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 27:
+        elif contagem_txt == 27:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1394,7 +1400,7 @@ def tela_jogo(window):
             text_7 = 'situação, já que a sua sobrevivência e da sua filha depende de VOCÊ.'
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 28:
+        elif contagem_txt == 28:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1413,7 +1419,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 29:
+        elif contagem_txt == 29:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1432,7 +1438,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 30:
+        elif contagem_txt == 30:
             dialogo_1_1 = 'Escolha uma opção:'
             dialogo_1_2 = ''
             
@@ -1451,7 +1457,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 31:
+        elif contagem_txt == 31:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1470,7 +1476,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 32:
+        elif contagem_txt == 32:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1489,7 +1495,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 33:
+        elif contagem_txt == 33:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1509,7 +1515,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #minigame da loja de armas rolando
-        if contagem_txt == 34:
+        elif contagem_txt == 34:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1528,7 +1534,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 35:
+        elif contagem_txt == 35:
             dialogo_1_1 = 'Infelizmente não docinho, aguenta'
             dialogo_1_2 = 'mais um pouquinho, okay?'
             
@@ -1547,7 +1553,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 36:
+        elif contagem_txt == 36:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1566,7 +1572,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 37:
+        elif contagem_txt == 37:
             dialogo_1_1 = 'Escolha uma opção:'
             dialogo_1_2 = ''
             
@@ -1585,7 +1591,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 38:
+        elif contagem_txt == 38:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1604,7 +1610,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 39:
+        elif contagem_txt == 39:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1623,7 +1629,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 40:
+        elif contagem_txt == 40:
             dialogo_1_1 = 'Do que voces estão falando?'
             dialogo_1_2 = ''
             
@@ -1642,7 +1648,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 41:
+        elif contagem_txt == 41:
             dialogo_1_1 = 'quem se importa com a'
             dialogo_1_2 = 'colonia de voces!'
             
@@ -1661,7 +1667,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 42:
+        elif contagem_txt == 42:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1680,7 +1686,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 43:
+        elif contagem_txt == 43:
             dialogo_1_1 = 'Não temos escolha'
             dialogo_1_2 = ''
             
@@ -1699,7 +1705,7 @@ def tela_jogo(window):
             text_7 = 'Pai, n temos mais suprimentos, mas sera que podemos confiar neles?'
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 44:
+        elif contagem_txt == 44:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1718,7 +1724,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 45:
+        elif contagem_txt == 45:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1737,7 +1743,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 46:
+        elif contagem_txt == 46:
             dialogo_1_1 = 'Eu tenho filha'
             dialogo_1_2 = ''
             
@@ -1756,7 +1762,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 47:
+        elif contagem_txt == 47:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1776,7 +1782,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #minigame rolando
-        if contagem_txt == 48:
+        elif contagem_txt == 48:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1795,7 +1801,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 50:
+        elif contagem_txt == 50:
             dialogo_1_1 = 'Como voce pode fazer isso?'
             dialogo_1_2 = ''
             
@@ -1814,7 +1820,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 51:
+        elif contagem_txt == 51:
             dialogo_1_1 = 'Mas deixe ele se tranformar primeiro'
             dialogo_1_2 = ''
             
@@ -1833,7 +1839,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 52:
+        elif contagem_txt == 52:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1852,7 +1858,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 53:
+        elif contagem_txt == 53:
             dialogo_1_1 = 'Solta ela seu filho de uma puta'
             dialogo_1_2 = ''
             
@@ -1871,7 +1877,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 54:
+        elif contagem_txt == 54:
             dialogo_1_1 = 'Calma cara relaxa, tudo'
             dialogo_1_2 = 'vai dar certo'
             
@@ -1890,7 +1896,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 55:
+        elif contagem_txt == 55:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1910,7 +1916,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #minigame rolando
-        if contagem_txt == 56:
+        elif contagem_txt == 56:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1929,7 +1935,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 57:
+        elif contagem_txt == 57:
             dialogo_1_1 = 'Fica quieta menina'
             dialogo_1_2 = ''
             
@@ -1948,7 +1954,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 58:
+        elif contagem_txt == 58:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1967,7 +1973,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 59:
+        elif contagem_txt == 59:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -1977,8 +1983,8 @@ def tela_jogo(window):
             dialogo_3_1 = ''
             dialogo_3_2 = ''
             
-            text_1 = 'Vocês continuam correndo e estão quase no carro, quando você sente seu corpo ficar leve e cai no chão'
-            text_2 = ''
+            text_1 = ''
+            text_2 = 'Vocês continuam correndo e estão quase no carro, quando você sente seu corpo ficar leve e cai no chão'
             text_3 = ''
             text_4 = ''
             text_5 = ''
@@ -1986,7 +1992,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 60:
+        elif contagem_txt == 60:
             dialogo_1_1 = 'Cuida da sua vida'
             dialogo_1_2 = ''
             
@@ -2005,7 +2011,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 61:
+        elif contagem_txt == 61:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -2024,7 +2030,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 62:
+        elif contagem_txt == 62:
             dialogo_1_1 = 'Eu não sei se consigo continuar'
             dialogo_1_2 = ''
             
@@ -2043,7 +2049,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 63:
+        elif contagem_txt == 63:
             dialogo_1_1 = 'Eu fui mordido'
             dialogo_1_2 = ''
             
@@ -2062,7 +2068,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 64:
+        elif contagem_txt == 64:
             dialogo_1_1 = 'Está tudo bem, mas você terá'
             dialogo_1_2 = 'que continuar sem mim'
             
@@ -2081,7 +2087,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 65:
+        elif contagem_txt == 65:
             dialogo_1_1 = 'Você tem que ir embora e me deixar'
             dialogo_1_2 = ''
             
@@ -2101,7 +2107,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #COntinua com resposta 1 e 2
-        if contagem_txt == 66:
+        elif contagem_txt == 66:
             if contagem_filha <= 3:
                 dialogo_1_1 = 'Você tem que fazer isso,'
                 dialogo_1_2 = 'é pelo seu bem'
@@ -2122,13 +2128,13 @@ def tela_jogo(window):
                 text_8 = ''
                 text_9 = ''
             else:
-                dialogo_1_1 = 'Te amo'
+                dialogo_1_1 = ' ... '
                 dialogo_1_2 = ''
             
-                dialogo_2_1 = 'Voce é forte, sempre foi'
+                dialogo_2_1 = ' poxa ...'
                 dialogo_2_2 = ''
             
-                dialogo_3_1 = 'Adeus'
+                dialogo_3_1 = '... Adeus'
                 dialogo_3_2 = ''
             
                 text_1 = '"Está bem, até nunca mais velhote"'
@@ -2140,7 +2146,7 @@ def tela_jogo(window):
                 text_7 = ''
                 text_8 = ''
                 text_9 = ''
-        if contagem_txt == 67:
+        elif contagem_txt == 67:
             dialogo_1_1 = 'Lembre-se, nunca olhe'
             dialogo_1_2 = 'para tras'
             
@@ -2159,7 +2165,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 68:
+        elif contagem_txt == 68:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -2180,7 +2186,7 @@ def tela_jogo(window):
             text_9 = ''
             #fim da escolha da resposta 1 e 2
             #Escolha de sua filha te matar
-        if contagem_txt == 69:
+        elif contagem_txt == 69:
             dialogo_1_1 = 'Sim'
             dialogo_1_2 = ''
             
@@ -2199,7 +2205,7 @@ def tela_jogo(window):
             text_7 = ''
             text_8 = ''
             text_9 = ''
-        if contagem_txt == 70:
+        elif contagem_txt == 70:
             if contagem_filha <= 3:
                 dialogo_1_1 = '*dar a pistola*'
                 dialogo_1_2 = ''
@@ -2238,7 +2244,7 @@ def tela_jogo(window):
                 text_7 = ''
                 text_8 = ''
                 text_9 = ''
-        if contagem_txt == 71:
+        elif contagem_txt == 71:
             dialogo_1_1 = 'Lembre-se, nunca olhe'
             dialogo_1_2 = 'para tras'
             
@@ -2259,7 +2265,7 @@ def tela_jogo(window):
             text_9 = ''
             #acaba 
             #final
-        if contagem_txt == 72:
+        elif contagem_txt == 72:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -2279,7 +2285,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
             #acabou
-        if contagem_txt == 73:
+        elif contagem_txt == 73:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
             
@@ -2305,7 +2311,7 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['teste'], (0, 0))
             all_sprites.draw(window)
-        if contagem_txt == 1:
+        elif contagem_txt == 1:
             window.fill(BLACK)
             window.blit(recursos['1'], (0, 0))
             all_sprites.draw(window)
