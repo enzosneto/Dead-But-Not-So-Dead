@@ -95,7 +95,7 @@ def load_recursos():
     recursos['button'] = pygame.transform.scale(recursos['button'], (WIDTH_BUTTON, HEIGHT_BUTTON)) 
     
     #colocar as imagens aqui, copiar o do posto de gasolina linha 2248
-    recursos['posto_gasolina_1'] = pygame.image.load('imgs/1.png').convert()
+    recursos['posto_gasolina_1'] = pygame.image.load('imgs/4.png').convert()
     #esse da capa eh um teste
     recursos['teste'] = pygame.image.load('imgs/capa.png').convert()
     
