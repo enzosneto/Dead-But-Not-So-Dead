@@ -215,6 +215,7 @@ def tela_jogo(window):
                 #print(py)
                 if contagem_txt == 0:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                        
                         contagem_txt = 1
                         
                 if contagem_txt == 1:
@@ -637,8 +638,8 @@ def tela_jogo(window):
                 elif contagem_txt == 57:
                     if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                        contagem_txt = 58
                         contagem_filha += 1
+                        contagem_txt = 58
                     
                     elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
                         
@@ -661,8 +662,8 @@ def tela_jogo(window):
                 elif contagem_txt == 60:
                     if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
                         
-                        contagem_txt = 61
                         contagem_filha += 1
+                        contagem_txt = 61
                     
                     elif px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
                         
@@ -2300,6 +2301,10 @@ def tela_jogo(window):
         
         all_sprites.update()
         #formula para fazer a imagem linha 97
+        if contagem_txt == 0:
+            window.fill(BLACK)
+            window.blit(recursos['teste'], (0, 0))
+            all_sprites.draw(window)
         if contagem_txt == 1:
             window.fill(BLACK)
             window.blit(recursos['1'], (0, 0))
@@ -2308,11 +2313,11 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['2'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt >= 3 and contagem_txt > 5:
+        elif contagem_txt >= 3 and contagem_txt < 5:
             window.fill(BLACK)
             window.blit(recursos['3'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <=5 and contagem_txt >7:
+        elif contagem_txt >=5 and contagem_txt < 7:
             window.fill(BLACK)
             window.blit(recursos['4'], (0, 0))
             all_sprites.draw(window)
@@ -2320,7 +2325,7 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['5'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <=7 and contagem_txt >7.5:
+        elif contagem_txt == 7 or contagem_txt == 7.5:
             window.fill(BLACK)
             window.blit(recursos['6'], (0, 0))
             all_sprites.draw(window)
@@ -2340,15 +2345,15 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['10'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 12 and contagem_txt > 15:
+        elif contagem_txt >= 12 and contagem_txt < 15:
             window.fill(BLACK)
             window.blit(recursos['11'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 15 and contagem_txt > 19:
+        elif contagem_txt >= 15 and contagem_txt < 19:
             window.fill(BLACK)
             window.blit(recursos['12'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 19 and contagem_txt > 21:
+        elif contagem_txt >= 19 and contagem_txt < 21:
             window.fill(BLACK)
             window.blit(recursos['13'], (0, 0))
             all_sprites.draw(window)
@@ -2356,11 +2361,11 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['14'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 22 and contagem_txt > 26:
+        elif contagem_txt >= 22 and contagem_txt < 26:
             window.fill(BLACK)
             window.blit(recursos['15'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 26 and contagem_txt > 29:
+        elif contagem_txt >= 26 and contagem_txt < 29:
             window.fill(BLACK)
             window.blit(recursos['16'], (0, 0))
             all_sprites.draw(window)
@@ -2380,7 +2385,7 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['20'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 33 and contagem_txt > 37:
+        elif contagem_txt >= 33 and contagem_txt < 37:
             window.fill(BLACK)
             window.blit(recursos['21'], (0, 0))
             all_sprites.draw(window)
@@ -2396,7 +2401,7 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['24'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 40 and contagem_txt > 46:
+        elif contagem_txt >= 40 and contagem_txt < 46:
             window.fill(BLACK)
             window.blit(recursos['25'], (0, 0))
             all_sprites.draw(window)
@@ -2412,11 +2417,11 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['28'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 50 and contagem_txt > 53:
+        elif contagem_txt >= 50 and contagem_txt < 53:
             window.fill(BLACK)
             window.blit(recursos['29'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 53 and contagem_txt > 55:
+        elif contagem_txt >= 53 and contagem_txt < 55:
             window.fill(BLACK)
             window.blit(recursos['30'], (0, 0))
             all_sprites.draw(window)
@@ -2428,15 +2433,15 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['32'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 57 and contagem_txt > 59:
+        elif contagem_txt >= 57 and contagem_txt < 59:
             window.fill(BLACK)
             window.blit(recursos['33'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 60 and contagem_txt > 72:
+        elif contagem_txt >= 60 and contagem_txt < 72:
             window.fill(BLACK)
             window.blit(recursos['34'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt <= 72:
+        elif contagem_txt >= 72:
             window.fill(BLACK)
             window.blit(recursos['35'], (0, 0))
             all_sprites.draw(window)
@@ -2446,13 +2451,7 @@ def tela_jogo(window):
 #            window.fill(BLACK)
 #            window.blit(recursos['36'], (0, 0))
 #           all_sprites.draw(window)
-            
-            
-            #teste
-        if contagem_txt == 0:
-            window.fill(BLACK)
-            window.blit(recursos['teste'], (0, 0))
-            all_sprites.draw(window)
+
         #ate aqui
         draw_text(window, dialogo_1_1, TEXT_SIZE, DIALOGO_WIDTH_1_1, DIALOGO_HEIGHT_1_1)
         draw_text(window, dialogo_1_2, TEXT_SIZE, DIALOGO_WIDTH_1_2, DIALOGO_HEIGHT_1_2)
