@@ -10,7 +10,9 @@ from teste_config import FPS, WIDTH, HEIGHT, BLACK
 from teste_load_dic_recursos import load_dic_recursos, FUNDO, AMMO
 from teste_sprites import Zombie, Sobrevivente, Sangue, Caixa
 
-def game_screen(window):
+morto = False
+
+def game_screen(window, morto):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
     
@@ -152,6 +154,7 @@ def game_screen(window):
             if len(hits) > 0:
                 # Toca o som da colisão
                 player.kill()
+                morto = True
                 state = DONE
                 
             # Se os zombies acabarem o jogo ficha

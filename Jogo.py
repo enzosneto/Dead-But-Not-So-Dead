@@ -4,7 +4,7 @@ Created on Fri May 22 17:31:07 2020
 """
 
 import pygame
-from teste_game_screen import game_screen#, morto
+from teste_game_screen import game_screen, morto
 
 pygame.init()
 
@@ -334,12 +334,12 @@ def tela_jogo(window):
                 elif contagem_txt == 14:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 15
-                         game_screen(window)  # Inicia o mini game 
-                         #if morto == False:
-                          #   contagem_txt = 15
-                         #else:
-                          #   game = False
+                         # contagem_txt = 15
+                         game_screen(window, morto)  # Inicia o mini game 
+                         if morto == False:
+                             contagem_txt = 15
+                         else:
+                             game = False
                          
                 elif contagem_txt == 15:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
