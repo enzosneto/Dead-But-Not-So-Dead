@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri May 22 17:31:07 2020
-
 """
 
 import pygame
@@ -95,7 +94,44 @@ def load_recursos():
     recursos['button'] = pygame.transform.scale(recursos['button'], (WIDTH_BUTTON, HEIGHT_BUTTON)) 
     
     #colocar as imagens aqui, copiar o do posto de gasolina linha 2248
-    recursos['posto_gasolina_1'] = pygame.image.load('imgs/4.png').convert()
+    recursos['1'] = pygame.image.load('imgs/1.png').convert()
+    recursos['2'] = pygame.image.load('imgs/2.png').convert()
+    recursos['3'] = pygame.image.load('imgs/3.png').convert()
+    recursos['4'] = pygame.image.load('imgs/4.png').convert()
+    recursos['5'] = pygame.image.load('imgs/5.png').convert()
+    recursos['6'] = pygame.image.load('imgs/6.png').convert()
+    recursos['7'] = pygame.image.load('imgs/7.png').convert()
+    recursos['8'] = pygame.image.load('imgs/8.png').convert()
+    recursos['9'] = pygame.image.load('imgs/9.png').convert()
+    recursos['10'] = pygame.image.load('imgs/10.png').convert()
+    recursos['11'] = pygame.image.load('imgs/11.png').convert()
+    recursos['12'] = pygame.image.load('imgs/12.png').convert()
+    recursos['13'] = pygame.image.load('imgs/13.png').convert()
+    recursos['14'] = pygame.image.load('imgs/14.png').convert()
+    recursos['15'] = pygame.image.load('imgs/15.png').convert()
+    recursos['16'] = pygame.image.load('imgs/16.png').convert()
+    recursos['17'] = pygame.image.load('imgs/17.png').convert()
+    recursos['18'] = pygame.image.load('imgs/18.png').convert()
+    recursos['19'] = pygame.image.load('imgs/19.png').convert()
+    recursos['20'] = pygame.image.load('imgs/20.png').convert()
+    recursos['21'] = pygame.image.load('imgs/21.png').convert()
+    recursos['22'] = pygame.image.load('imgs/22.png').convert()
+    recursos['23'] = pygame.image.load('imgs/23.png').convert()
+    recursos['24'] = pygame.image.load('imgs/24.png').convert()
+    recursos['25'] = pygame.image.load('imgs/25.png').convert()
+    recursos['26'] = pygame.image.load('imgs/26.png').convert()
+    recursos['27'] = pygame.image.load('imgs/27.png').convert()
+    recursos['28'] = pygame.image.load('imgs/28.png').convert()
+    recursos['29'] = pygame.image.load('imgs/29.png').convert()
+    recursos['30'] = pygame.image.load('imgs/30.png').convert()
+    recursos['31'] = pygame.image.load('imgs/31.png').convert()
+    recursos['32'] = pygame.image.load('imgs/32.png').convert()
+    recursos['33'] = pygame.image.load('imgs/33.png').convert()
+    recursos['34'] = pygame.image.load('imgs/34.png').convert()
+    recursos['35'] = pygame.image.load('imgs/35.png').convert()
+    recursos['36'] = pygame.image.load('imgs/36.png').convert()
+    
+    
     #esse da capa eh um teste
     recursos['teste'] = pygame.image.load('imgs/capa.png').convert()
     
@@ -165,7 +201,7 @@ def tela_jogo(window):
     all_sprites.add(button_2)
     all_sprites.add(button_3)
     
-    contagem_txt = 1 # Serve para mudar os textos
+    contagem_txt = 0 # Serve para mudar os textos
     contagem_filha = 1 #Serve para acabar o jogo caso a filha fique brava
     game = True
     while game:
@@ -177,6 +213,10 @@ def tela_jogo(window):
                 py = event.pos[1]
                 #print(px)
                 #print(py)
+                if contagem_txt == 0:
+                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
+                        contagem_txt = 1
+                        
                 if contagem_txt == 1:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
 
@@ -773,7 +813,28 @@ def tela_jogo(window):
                     game = False
                          
             
-        #Todas as falas e textos do jogo                
+        #Todas as falas e textos do jogo
+                       
+        if contagem_txt == 0:
+            dialogo_1_1 = ''
+            dialogo_1_2 = ''
+            
+            dialogo_2_1 = ''
+            dialogo_2_2 = ''
+            
+            dialogo_3_1 = ''
+            dialogo_3_2 = ''
+            
+            text_1 = ''
+            text_2 = ''
+            text_3 = ''
+            text_4 = ''
+            text_5 = ''
+            text_6 = ''
+            text_7 = ''
+            text_8 = ''
+            text_9 = ''
+         
         if contagem_txt == 1:
             dialogo_1_1 = ''
             dialogo_1_2 = ''
@@ -2239,12 +2300,156 @@ def tela_jogo(window):
         
         all_sprites.update()
         #formula para fazer a imagem linha 97
-        if contagem_txt < 3:
+        if contagem_txt == 1:
             window.fill(BLACK)
-            window.blit(recursos['posto_gasolina_1'], (0, 0))
+            window.blit(recursos['1'], (0, 0))
             all_sprites.draw(window)
+        elif contagem_txt == 2:
+            window.fill(BLACK)
+            window.blit(recursos['2'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt >= 3 and contagem_txt > 5:
+            window.fill(BLACK)
+            window.blit(recursos['3'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <=5 and contagem_txt >7:
+            window.fill(BLACK)
+            window.blit(recursos['4'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 8:
+            window.fill(BLACK)
+            window.blit(recursos['5'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <=7 and contagem_txt >7.5:
+            window.fill(BLACK)
+            window.blit(recursos['6'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 9:
+            window.fill(BLACK)
+            window.blit(recursos['7'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 10:
+            window.fill(BLACK)
+            window.blit(recursos['8'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 10.5:
+            window.fill(BLACK)
+            window.blit(recursos['9'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 11:
+            window.fill(BLACK)
+            window.blit(recursos['10'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 12 and contagem_txt > 15:
+            window.fill(BLACK)
+            window.blit(recursos['11'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 15 and contagem_txt > 19:
+            window.fill(BLACK)
+            window.blit(recursos['12'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 19 and contagem_txt > 21:
+            window.fill(BLACK)
+            window.blit(recursos['13'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 21:
+            window.fill(BLACK)
+            window.blit(recursos['14'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 22 and contagem_txt > 26:
+            window.fill(BLACK)
+            window.blit(recursos['15'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 26 and contagem_txt > 29:
+            window.fill(BLACK)
+            window.blit(recursos['16'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 29:
+            window.fill(BLACK)
+            window.blit(recursos['17'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 30:
+            window.fill(BLACK)
+            window.blit(recursos['18'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 31:
+            window.fill(BLACK)
+            window.blit(recursos['19'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 32:
+            window.fill(BLACK)
+            window.blit(recursos['20'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 33 and contagem_txt > 37:
+            window.fill(BLACK)
+            window.blit(recursos['21'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 37:
+            window.fill(BLACK)
+            window.blit(recursos['22'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 38:
+            window.fill(BLACK)
+            window.blit(recursos['23'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 39:
+            window.fill(BLACK)
+            window.blit(recursos['24'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 40 and contagem_txt > 46:
+            window.fill(BLACK)
+            window.blit(recursos['25'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 46:
+            window.fill(BLACK)
+            window.blit(recursos['26'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 47:
+            window.fill(BLACK)
+            window.blit(recursos['27'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 48:
+            window.fill(BLACK)
+            window.blit(recursos['28'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 50 and contagem_txt > 53:
+            window.fill(BLACK)
+            window.blit(recursos['29'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 53 and contagem_txt > 55:
+            window.fill(BLACK)
+            window.blit(recursos['30'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 55:
+            window.fill(BLACK)
+            window.blit(recursos['31'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 56:
+            window.fill(BLACK)
+            window.blit(recursos['32'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 57 and contagem_txt > 59:
+            window.fill(BLACK)
+            window.blit(recursos['33'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 60 and contagem_txt > 72:
+            window.fill(BLACK)
+            window.blit(recursos['34'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt <= 72:
+            window.fill(BLACK)
+            window.blit(recursos['35'], (0, 0))
+            all_sprites.draw(window)
+            
+# GAME OVER
+#        elif contagem_txt <= 72:
+#            window.fill(BLACK)
+#            window.blit(recursos['36'], (0, 0))
+#           all_sprites.draw(window)
+            
+            
             #teste
-        if contagem_txt >= 3:
+        if contagem_txt == 0:
             window.fill(BLACK)
             window.blit(recursos['teste'], (0, 0))
             all_sprites.draw(window)
@@ -2273,4 +2478,3 @@ def tela_jogo(window):
 tela_jogo(window)
     
 pygame.quit()
-
