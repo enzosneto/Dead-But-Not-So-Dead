@@ -10,7 +10,7 @@ from teste_config import FPS, WIDTH, HEIGHT, BLACK
 from teste_load_dic_recursos import load_dic_recursos, FUNDO, AMMO
 from teste_sprites import Zombie, Sobrevivente, Sangue, Caixa
 
-def game_screen(window, morto):
+def game_screen_final(window, morto):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
     
@@ -172,3 +172,4 @@ def game_screen(window, morto):
         window.blit(text_surface, text_rect)
 
         pygame.display.update()  # Mostra o novo frame para o jogador
+    return False

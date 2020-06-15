@@ -4,7 +4,7 @@ Created on Fri May 22 17:31:07 2020
 """
 
 import pygame
-from teste_game_screen import game_screen
+from teste_game_screen import game_screen_final
 
 pygame.init()
 
@@ -205,7 +205,6 @@ def tela_jogo(window):
     contagem_filha = 0 #Serve para acabar o jogo caso a filha fique brava
     
     MORTO = False
-    # morto = game_screen(window, MORTO)
     
     game = True
     while game:
@@ -344,14 +343,11 @@ def tela_jogo(window):
                 elif contagem_txt == 14:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 15
-                         # game_screen(window, morto)  # Inicia o mini game 
-                         game_screen(window, MORTO)
-                         # morto = game_screen(window, morto)
-                         #if morto == False:
-                          #   contagem_txt = 15
-                         #else:
-                          #   game = False
+                         morto = game_screen_final(window, MORTO)
+                         if morto == False:
+                             contagem_txt = 15
+                         else:
+                             contagem_txt = 73
                          
                 elif contagem_txt == 15:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -414,7 +410,11 @@ def tela_jogo(window):
                 elif contagem_txt == 24:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 25
+                        morto = game_screen_final(window, MORTO)
+                        if morto == False:
+                            contagem_txt = 25
+                        else:
+                            contagem_txt = 73
                          
                 elif contagem_txt == 25:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -462,13 +462,15 @@ def tela_jogo(window):
                          
                 elif contagem_txt == 33:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
-                         contagem_txt = 34
+                        morto = game_screen_final(window, MORTO)
+                        if morto == False:
+                            contagem_txt = 34
+                        else:
+                            contagem_txt = 73
                          
                 elif contagem_txt == 34:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
-                         contagem_txt = 35
+                        contagem_txt = 35
                          
                 elif contagem_txt == 35:
                     if px > 16 and px < 266 and py > 520 and py < 590: # Botão 1
@@ -578,8 +580,11 @@ def tela_jogo(window):
                         
                 elif contagem_txt == 47:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
-                         contagem_txt = 48
+                        morto = game_screen_final(window, MORTO)
+                        if morto == False:
+                            contagem_txt = 48
+                        else:
+                            contagem_txt = 73
                          
                 elif contagem_txt == 48:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -645,8 +650,11 @@ def tela_jogo(window):
                         
                 elif contagem_txt == 55:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
-                         contagem_txt = 56
+                        morto = game_screen_final(window, MORTO)
+                        if morto == False:
+                            contagem_txt = 56
+                        else:
+                            contagem_txt = 73
                          
                 elif contagem_txt == 56:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -1157,7 +1165,7 @@ def tela_jogo(window):
             dialogo_3_2 = ''
             
             text_1 = 'Para andar com o personagem aperte as teclas AWSD, e para atirar as setas'
-            text_2 = ''
+            text_2 = 'Tome cuidado com sua minução, se acabar não lhe resta nada além de virar comida pra infectado'
             text_3 = ''
             text_4 = ''
             text_5 = ''
@@ -1353,7 +1361,7 @@ def tela_jogo(window):
             text_3 = 'quanto o exterior. Mesmo assim, você aguenta essas condições para explorar a casa meticulosamente.'
             text_4 = 'No final da sua exploração, você ouve barulhos vindo de fora, logo percebe que uma horda alcançou'
             text_5 = 'vocês, mas sabe que pelo barulho não são muitos. Você deve se defender, pelo bem da sua filha.'
-            text_6 = ''
+            text_6 = 'Sua sorte é que conseguiu achar algumas balas na sua exploração. Agora é só recarregar e, SHOW TIME!'
             text_7 = ''
             text_8 = ''
             text_9 = ''
@@ -1507,7 +1515,7 @@ def tela_jogo(window):
             text_3 = 'bem e sobrevivência dela. A loja aparenta estar em boas condições para os padrões dos dias de hoje.'
             text_4 = 'Como esperado o lugar já foi saqueado antes, ainda sim você checa para ver se sobrou alguma comida.'
             text_5 = 'Você decide checar nos galpões do fundo, geralmente é guardado alguns alimentos não perecíveis lá.'
-            text_6 = 'BOSTA! Não sobrou nada... nem um pedacinho de nada.'
+            text_6 = 'BOSTA! Não sobrou nada... nem um pedacinho de nada. Sobrou apenas algumas balas escondidas no balcão'
             text_7 = ''
             text_8 = ''
             text_9 = ''
@@ -1789,8 +1797,8 @@ def tela_jogo(window):
             dialogo_3_2 = ''
             
             text_1 = 'Você vai na frente e abre a porta da mercearia, voce sente o cheiro de carne podre,'
-            text_2 = 'normal dos zumbies e entao vc escuta um grunido vindo na sua direçao'
-            text_3 = ''
+            text_2 = 'normal dos zumbies e entao vc escuta um grunido vindo na sua direçao.'
+            text_3 = 'Você agradece a Deus que durante sua viajem pode catar algumas balas pra sua arma.'
             text_4 = ''
             text_5 = ''
             text_6 = ''
@@ -1926,7 +1934,7 @@ def tela_jogo(window):
             text_2 = ''
             text_3 = 'Quando ele fala isso um zumbie vem por tras dele e morde ele, que o faz soltar sua filha'
             text_4 = 'O zumbi cai por cima dele e quando isso aconteve os outros zumbies que estavam na frente da loja entram'
-            text_5 = ''
+            text_5 = 'Felizmente, você consegue pegar uma caixa de munição, que estava convenientimente na prateleira do lado'
             text_6 = ''
             text_7 = ''
             text_8 = ''
