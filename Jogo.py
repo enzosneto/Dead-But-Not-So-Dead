@@ -201,11 +201,11 @@ def tela_jogo(window):
     all_sprites.add(button_2)
     all_sprites.add(button_3)
     
-    contagem_txt = 13 # Serve para mudar os textos
+    contagem_txt = 0 # Serve para mudar os textos
     contagem_filha = 0 #Serve para acabar o jogo caso a filha fique brava
     
     MORTO = False
-    morto = game_screen(window, MORTO)
+    # morto = game_screen(window, MORTO)
     
     game = True
     while game:
@@ -344,13 +344,14 @@ def tela_jogo(window):
                 elif contagem_txt == 14:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         #contagem_txt = 15
-                         game_screen(window, morto)  # Inicia o mini game 
+                         contagem_txt = 15
+                         # game_screen(window, morto)  # Inicia o mini game 
+                         game_screen(window, MORTO)
                          # morto = game_screen(window, morto)
-                         if MORTO == False:
-                             contagem_txt = 15
-                         else:
-                             game = False
+                         #if morto == False:
+                          #   contagem_txt = 15
+                         #else:
+                          #   game = False
                          
                 elif contagem_txt == 15:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
