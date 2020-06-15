@@ -7,7 +7,7 @@ Created on Fri Jun 12 17:29:41 2020
 
 import pygame
 import os
-from teste_config import WIDTH, HEIGHT, ZOMBIE_WIDTH, ZOMBIE_HEIGHT, SURVIVOR_WIDTH, SURVIVOR_HEIGHT, BALA_WIDTH, BALA_HEIGTH, CAIXA_WIDTH, CAIXA_HEIGTH, IMG_DIR
+from teste_config import WIDTH, HEIGHT, ZOMBIE_WIDTH, ZOMBIE_HEIGHT, SURVIVOR_WIDTH, SURVIVOR_HEIGHT, BALA_WIDTH, BALA_HEIGTH, CAIXA_WIDTH, CAIXA_HEIGTH, IMG_DIR, SND_DIR
 
 # Cria os recursos do minigame
 
@@ -28,6 +28,8 @@ TIRO_4 = 'tiro_4'
 SANGUE_ANIM = 'sangue_anim'
 CAIXA = 'caixa'
 AMMO =  'ammo'
+GUN_SND = 'gun_snd'
+ZOMBIE_SND = 'zombie_snd'
 
 def load_dic_recursos():
     dic_recursos = {}
@@ -54,6 +56,8 @@ def load_dic_recursos():
     dic_recursos[CAIXA] = pygame.transform.scale(dic_recursos['caixa'], (CAIXA_WIDTH, CAIXA_HEIGTH))
     dic_recursos[AMMO] = pygame.font.Font('fontes/ammo_font.ttf', 28)
     
+    dic_recursos[GUN_SND] = pygame.mixer.Sound(os.path.join(SND_DIR, 'gun_shot.wav'))
+    dic_recursos[ZOMBIE_SND] = pygame.mixer.Sound(os.path.join(SND_DIR, 'zombie_sound.wav'))
     # Animação da morte
 
     sangue_anim = []

@@ -7,7 +7,7 @@ Created on Fri Jun 12 17:28:41 2020
 
 import pygame
 from teste_config import FPS, WIDTH, HEIGHT, BLACK
-from teste_load_dic_recursos import load_dic_recursos, FUNDO, AMMO
+from teste_load_dic_recursos import load_dic_recursos, FUNDO, AMMO, ZOMBIE_SND
 from teste_sprites import Zombie, Sobrevivente, Sangue, Caixa
 
 def game_screen_final(window, morto):
@@ -118,20 +118,15 @@ def game_screen_final(window, morto):
             for zombie_1 in hits: # As chaves são os elementos do primeiro grupo (zombies) que colidiram com alguma bala
                 # O zombie e destruido
                 # No lugar do zombie antigo, adicionar sangue.
+                dic_recursos[ZOMBIE_SND].play()
                 sangue_1 = Sangue(zombie_1.rect.center, dic_recursos)
                 all_sprites.add(sangue_1)
-                
-            hits = pygame.sprite.groupcollide(all_zombies, all_bullets_2, True, True, pygame.sprite.collide_mask)
-            for zombie_1 in hits: # As chaves são os elementos do primeiro grupo (zombies) que colidiram com alguma bala
-                # O zombie e destruido
-                # No lugar do zombie antigo, adicionar sangue.
-                sangue_1 = Sangue(zombie_1.rect.center, dic_recursos)
-                all_sprites.add(sangue_1)
-        
+                      
             hits = pygame.sprite.groupcollide(all_zombies, all_bullets_2, True, True, pygame.sprite.collide_mask)
             for zombie_2 in hits: # As chaves são os elementos do primeiro grupo (zombies) que colidiram com alguma bala
                 # O zombie e destruido
                 # No lugar do zombie antigo, adicionar sangue.
+                dic_recursos[ZOMBIE_SND].play()
                 sangue_2 = Sangue(zombie_2.rect.center, dic_recursos)
                 all_sprites.add(sangue_2)
 
@@ -139,6 +134,7 @@ def game_screen_final(window, morto):
             for zombie_3 in hits: # As chaves são os elementos do primeiro grupo (zombies) que colidiram com alguma bala
                 # O zombie e destruido
                 # No lugar do zombie antigo, adicionar sangue.
+                dic_recursos[ZOMBIE_SND].play()
                 sangue_3 = Sangue(zombie_3.rect.center, dic_recursos)
                 all_sprites.add(sangue_3)
 
@@ -146,6 +142,7 @@ def game_screen_final(window, morto):
             for zombie_4 in hits: # As chaves são os elementos do primeiro grupo (zombies) que colidiram com alguma bala
                 # O zombie e destruido
                 # No lugar do zombie antigo, adicionar sangue.
+                dic_recursos[ZOMBIE_SND].play()
                 sangue_4 = Sangue(zombie_4.rect.center, dic_recursos)
                 all_sprites.add(sangue_4)
 

@@ -8,7 +8,7 @@ Created on Fri Jun 12 17:30:48 2020
 import random
 import pygame
 from teste_config import WIDTH, HEIGHT, ZOMBIE_WIDTH, ZOMBIE_HEIGHT
-from teste_load_dic_recursos import ZOMBIE_IMG, SOBREVIVENTE_IMG, TIRO_1, TIRO_2, TIRO_3, TIRO_4, SANGUE_ANIM, CAIXA, AMMO
+from teste_load_dic_recursos import ZOMBIE_IMG, SOBREVIVENTE_IMG, TIRO_1, TIRO_2, TIRO_3, TIRO_4, SANGUE_ANIM, CAIXA, AMMO, GUN_SND
 
 # Criando as classes
 
@@ -172,24 +172,28 @@ class Sobrevivente(pygame.sprite.Sprite):
         new_bullet_1 = Bullet_1(self.dic_recursos, self.rect.top, self.rect.centerx)
         self.groups['all_sprites'].add(new_bullet_1)
         self.groups['all_bullets_1'].add(new_bullet_1)
+        self.dic_recursos[GUN_SND].play()
 
     def shoot_2(self):
         # A nova bala vai ser criada logo acima e no centro horizontal da nave
         new_bullet_2 = Bullet_2(self.dic_recursos, self.rect.top, self.rect.centerx)
         self.groups['all_sprites'].add(new_bullet_2)
         self.groups['all_bullets_2'].add(new_bullet_2)
+        self.dic_recursos[GUN_SND].play()
             
     def shoot_3(self):
         # A nova bala vai ser criada logo acima e no centro horizontal da nave
         new_bullet_3 = Bullet_3(self.dic_recursos, self.rect.top, self.rect.centerx)
         self.groups['all_sprites'].add(new_bullet_3)
         self.groups['all_bullets_3'].add(new_bullet_3)
+        self.dic_recursos[GUN_SND].play()
             
     def shoot_4(self):
         # A nova bala vai ser criada logo acima e no centro horizontal da nave
         new_bullet_4 = Bullet_4(self.dic_recursos, self.rect.top, self.rect.centerx)
         self.groups['all_sprites'].add(new_bullet_4)
         self.groups['all_bullets_4'].add(new_bullet_4)
+        self.dic_recursos[GUN_SND].play()
 
 # Classe da anim de morte
 class Sangue(pygame.sprite.Sprite):
