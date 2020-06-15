@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri May 22 17:31:07 2020
-"""
-
+import os
 import pygame
 from teste_game_screen import game_screen_final
 
@@ -93,7 +89,8 @@ def load_recursos():
     recursos['button'] = pygame.image.load('imgs/button.png').convert()
     recursos['button'] = pygame.transform.scale(recursos['button'], (WIDTH_BUTTON, HEIGHT_BUTTON)) 
     
-    #colocar as imagens aqui, copiar o do posto de gasolina linha 2248
+    #Imagens de fundo
+    recursos['teste'] = pygame.image.load('imgs/capa.png').convert()
     recursos['1'] = pygame.image.load('imgs/1.png').convert()
     recursos['2'] = pygame.image.load('imgs/2.png').convert()
     recursos['3'] = pygame.image.load('imgs/3.png').convert()
@@ -131,10 +128,12 @@ def load_recursos():
     recursos['35'] = pygame.image.load('imgs/35.png').convert()
     recursos['36'] = pygame.image.load('imgs/36.png').convert()
     
-    
-    #esse da capa eh um teste
-    recursos['teste'] = pygame.image.load('imgs/capa.png').convert()
-    
+    #Musica do jogo
+    arquivo = os.path.join('sound','I Miss You.ogg')
+    pygame.mixer.music.load(arquivo)
+    pygame.mixer.music.set_volume(0.3)
+    pygame.mixer.music.play(-1)
+        
     return recursos
 
 class Caixa_de_texto(pygame.sprite.Sprite):
@@ -2319,7 +2318,7 @@ def tela_jogo(window):
             dialogo_3_1 = 'Quit game'
             dialogo_3_2 = ''
             
-            text_1 = '"THE END"'
+            text_1 = '"Obrigado por jogar"'
             text_2 = ''
             text_3 = ''
             text_4 = ''
@@ -2330,7 +2329,8 @@ def tela_jogo(window):
             text_9 = ''
         
         all_sprites.update()
-        #formula para fazer a imagem linha 97
+
+        #Mudando a imagem de fundo
         if contagem_txt == 0:
             window.fill(BLACK)
             window.blit(recursos['teste'], (0, 0))
