@@ -1,7 +1,9 @@
+#importa bibliotecas necessarias
 import os
 import pygame
 from teste_game_screen import game_screen_final
 
+#inicia rotina pygame
 pygame.init()
 
 RED = (255, 0, 0, 255)
@@ -20,13 +22,14 @@ HEIGHT_BUTTON = 70
 
 font_name = pygame.font.match_font('arial')
 
+#caixa de dialogo 1
 DIALOGO_WIDTH_1_1 = WIDTH/4 - 170
 DIALOGO_HEIGHT_1_1 = HEIGHT - 260
 
 DIALOGO_WIDTH_1_2 = WIDTH/4 - 170
 DIALOGO_HEIGHT_1_2 = HEIGHT - 240
 
-# - - - - - -  - - - - - - - - - -  - - - -
+# Caixa de dialogo 2
 
 DIALOGO_WIDTH_2_1 = WIDTH/4 + 90
 DIALOGO_HEIGHT_2_1 = HEIGHT - 260
@@ -34,7 +37,7 @@ DIALOGO_HEIGHT_2_1 = HEIGHT - 260
 DIALOGO_WIDTH_2_2 = WIDTH/4 + 90
 DIALOGO_HEIGHT_2_2 = HEIGHT - 240
 
-# - - - - - -  - - - - - - - - - -  - - - -
+# caixa de dialogo 3
 
 DIALOGO_WIDTH_3_1 = WIDTH/4 + 350
 DIALOGO_HEIGHT_3_1 = HEIGHT - 260
@@ -42,7 +45,7 @@ DIALOGO_HEIGHT_3_1 = HEIGHT - 260
 DIALOGO_WIDTH_3_2 = WIDTH/4 + 350
 DIALOGO_HEIGHT_3_2 = HEIGHT - 240
 
-# - - - - - -  - - - - - - - - - -  - - - -
+#Linhas de texto
 
 TEXTO_WIDTH_1 = WIDTH/4 - 175
 TEXTO_HEIGHT_1 = (HEIGHT - 20) - 175
@@ -81,7 +84,8 @@ def draw_text(window, text, size, width, height):
     text_rect = text_window.get_rect()
     text_rect.midleft = (width, height)
     window.blit(text_window, text_rect)
-
+    
+#recursos como as imagens, texto e botões
 def load_recursos():
     recursos = {}
     recursos['caixa_texto'] = pygame.image.load('imgs/caixa_texto.png').convert()
@@ -90,7 +94,7 @@ def load_recursos():
     recursos['button'] = pygame.transform.scale(recursos['button'], (WIDTH_BUTTON, HEIGHT_BUTTON)) 
     
     #Imagens de fundo
-    recursos['teste'] = pygame.image.load('imgs/capa.png').convert()
+    recursos['capa'] = pygame.image.load('imgs/capa.png').convert()
     recursos['1'] = pygame.image.load('imgs/1.png').convert()
     recursos['2'] = pygame.image.load('imgs/2.png').convert()
     recursos['3'] = pygame.image.load('imgs/3.png').convert()
@@ -200,11 +204,13 @@ def tela_jogo(window):
     all_sprites.add(button_2)
     all_sprites.add(button_3)
     
-    contagem_txt = 0 # Serve para mudar os textos
+    contagem_txt = 0 # Serve para mudar os textos e imagens
     contagem_filha = 0 #Serve para acabar o jogo caso a filha fique brava
     
+    #verfifica se o player morreu
     MORTO = False
     
+    #Começa o jogo quando True e termina quando False
     game = True
     while game:
         for event in pygame.event.get():
@@ -213,8 +219,7 @@ def tela_jogo(window):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 px = event.pos[0]
                 py = event.pos[1]
-                #print(px)
-                #print(py)
+
                 if contagem_txt == 0:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
@@ -281,12 +286,7 @@ def tela_jogo(window):
                 elif contagem_txt == 7:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 7.5
-                         
-                elif contagem_txt == 7.5:
-                    if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
-                        
-                         contagem_txt = 8
+                         contagem_txt = 9
                          
                 elif contagem_txt == 8:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -992,25 +992,6 @@ def tela_jogo(window):
             text_1 = 'O rádio deve ter te afetado um pouco, você decide parar de abastecer pra sair de onde estão e voltar para casa.'
             text_2 = 'Mas quando liga o carro, vê pessoas com a pele deformada e as bocas ensanguentadas saindo de dentro da loja'
             text_3 = 'e correndo em sua direção.'
-            text_4 = ''
-            text_5 = ''
-            text_6 = ''
-            text_7 = ''
-            text_8 = ''
-            text_9 = ''
-        elif contagem_txt == 7.5:
-            dialogo_1_1 = ''
-            dialogo_1_2 = ''
-            
-            dialogo_2_1 = ''
-            dialogo_2_2 = ''
-            
-            dialogo_3_1 = ''
-            dialogo_3_2 = ''
-            
-            text_1 = 'Ao ver isso, você liga o carro o mais rápido que consegue. Quando consegue engatar a primeira marcha '
-            text_2 = 'é surpreendido quando uma dessas “pessoas” bate contra o seu vidro e outra contra o vidro no porta malas.'
-            text_3 = 'Sem pensar duas vezes, você pisa fundo no acelerador escapa do posto'
             text_4 = ''
             text_5 = ''
             text_6 = ''
@@ -1725,7 +1706,7 @@ def tela_jogo(window):
             text_4 = ''
             text_5 = ''
             text_6 = ''
-            text_7 = 'Pai, n temos mais suprimentos, mas sera que podemos confiar neles?'
+            text_7 = '"Pai, n temos mais suprimentos, mas sera que podemos confiar neles?"'
             text_8 = ''
             text_9 = ''
         elif contagem_txt == 44:
@@ -1778,7 +1759,7 @@ def tela_jogo(window):
             
             text_1 = '"Você primeiro! Eu to quase sem muniçao, não vou te ajudar muito"'
             text_2 = ''
-            text_3 = '"Diz o homem com quem você tem falado até agora"'
+            text_3 = 'Diz o homem com quem você tem falado até agora'
             text_4 = ''
             text_5 = ''
             text_6 = ''
@@ -1825,7 +1806,7 @@ def tela_jogo(window):
             text_8 = ''
             text_9 = ''
         elif contagem_txt == 50:
-            dialogo_1_1 = 'Como voce pode fazer isso?'
+            dialogo_1_1 = 'Como você pode fazer isso?'
             dialogo_1_2 = ''
             
             dialogo_2_1 = 'Belo tiro'
@@ -1847,7 +1828,7 @@ def tela_jogo(window):
             dialogo_1_1 = 'Mas deixe ele se tranformar primeiro'
             dialogo_1_2 = ''
             
-            dialogo_2_1 = 'Então alexandria é um campo de'
+            dialogo_2_1 = 'Então Alexandria é um campo de'
             dialogo_2_2 = 'massacres'
             
             dialogo_3_1 = 'Isso foi muito desumano'
@@ -1904,7 +1885,7 @@ def tela_jogo(window):
             dialogo_1_1 = 'Calma cara relaxa, tudo'
             dialogo_1_2 = 'vai dar certo'
             
-            dialogo_2_1 = 'Solta ela agora poha'
+            dialogo_2_1 = 'Solta ela agora porra'
             dialogo_2_2 = ''
             
             dialogo_3_1 = 'Eu te dou metade das'
@@ -2025,7 +2006,7 @@ def tela_jogo(window):
             dialogo_3_1 = 'Vamos rapido!'
             dialogo_3_2 = ''
             
-            text_1 = '"Pai com certeza você não está bem!'
+            text_1 = '"Pai com certeza você não está bem!"'
             text_2 = ''
             text_3 = ''
             text_4 = ''
@@ -2098,7 +2079,7 @@ def tela_jogo(window):
             dialogo_2_1 = 'Eu nao quero me tornar um deles'
             dialogo_2_2 = ''
             
-            dialogo_3_1 = 'Eu vou morrer'
+            dialogo_3_1 = 'Eu vou morrer!'
             dialogo_3_2 = ''
             
             text_1 = '"Meu Deus! O que faremos agora!?!"'
@@ -2120,7 +2101,7 @@ def tela_jogo(window):
             dialogo_3_1 = 'Por favor filha não me deixe'
             dialogo_3_2 = 'virar um deles'
             
-            text_1 = 'Eu não vou te abandonar!'
+            text_1 = '"Eu não vou te abandonar!"'
             text_2 = ''
             text_3 = ''
             text_4 = ''
@@ -2219,7 +2200,7 @@ def tela_jogo(window):
             dialogo_3_1 = 'vai rapido por favor'
             dialogo_3_2 = ''
             
-            text_1 = 'O que? Você quer que eu te mate!?!'
+            text_1 = '"O que? Você quer que eu te mate!?!"'
             text_2 = ''
             text_3 = ''
             text_4 = ''
@@ -2239,7 +2220,7 @@ def tela_jogo(window):
                 dialogo_3_1 = 'Te amo'
                 dialogo_3_2 = ''
                 
-                text_1 = 'Ta bom, eu faço isso'
+                text_1 = '"Ta bom, eu faço isso"'
                 text_2 = ''
                 text_3 = ''
                 text_4 = ''
@@ -2299,15 +2280,16 @@ def tela_jogo(window):
             dialogo_3_2 = ''
             
             text_1 = 'Sua filha agora esta em um grupo de 6 pessoas, todos estao indo para o Canada'
-            text_2 = 'Ela se lembra de voce todos os dias mas nao chora mais, ela se tornou muito mais forte e resiliente'
+            text_2 = 'Ela se lembra de você todos os dias mas não chora mais, ela se tornou muito mais forte e resiliente'
             text_3 = 'Agora ela encontrou pessoas que ela pode chamar de familia, e se tornou alguem feliz novamente'
             text_4 = 'Apos dois anos eles finalmente chegam a uma grande muralha em meio a uma tempestade de neve, e no'
-            text_5 = 'portao tem um escrito “Le resistence"'
+            text_5 = 'portão tem um escrito “Le resistence"'
             text_6 = ''
             text_7 = ''
             text_8 = ''
             text_9 = ''
             #acabou
+            #tela de game over
         elif contagem_txt == 73:
             dialogo_1_1 = 'Escolha um dos dois:'
             dialogo_1_2 = ''
@@ -2333,7 +2315,7 @@ def tela_jogo(window):
         #Mudando a imagem de fundo
         if contagem_txt == 0:
             window.fill(BLACK)
-            window.blit(recursos['teste'], (0, 0))
+            window.blit(recursos['capa'], (0, 0))
             all_sprites.draw(window)
         elif contagem_txt == 1:
             window.fill(BLACK)
@@ -2480,13 +2462,6 @@ def tela_jogo(window):
             window.blit(recursos['36'], (0, 0))
             all_sprites.draw(window)
             
-# GAME OVER
-#        elif contagem_txt <= 72:
-#            window.fill(BLACK)
-#            window.blit(recursos['36'], (0, 0))
-#           all_sprites.draw(window)
-
-        #ate aqui
         draw_text(window, dialogo_1_1, TEXT_SIZE, DIALOGO_WIDTH_1_1, DIALOGO_HEIGHT_1_1)
         draw_text(window, dialogo_1_2, TEXT_SIZE, DIALOGO_WIDTH_1_2, DIALOGO_HEIGHT_1_2)
         
