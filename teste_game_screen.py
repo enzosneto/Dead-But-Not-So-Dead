@@ -10,8 +10,6 @@ from teste_config import FPS, WIDTH, HEIGHT, BLACK
 from teste_load_dic_recursos import load_dic_recursos, FUNDO, AMMO
 from teste_sprites import Zombie, Sobrevivente, Sangue, Caixa
 
-morto = False
-
 def game_screen(window, morto):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
@@ -50,6 +48,8 @@ def game_screen(window, morto):
     state = PLAYING
     
     MUNICAO = 20
+    
+    morto = False
     
     # ===== Loop principal =====
     while state != DONE:
@@ -154,9 +154,9 @@ def game_screen(window, morto):
             if len(hits) > 0:
                 # Toca o som da colisão
                 player.kill()
-                morto = True
                 state = DONE
-                
+                morto = True
+                return morto
             # Se os zombies acabarem o jogo ficha
             if len(all_zombies) == 0:
                 state = DONE

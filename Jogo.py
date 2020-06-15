@@ -4,7 +4,7 @@ Created on Fri May 22 17:31:07 2020
 """
 
 import pygame
-from teste_game_screen import game_screen, morto
+from teste_game_screen import game_screen
 
 pygame.init()
 
@@ -201,8 +201,12 @@ def tela_jogo(window):
     all_sprites.add(button_2)
     all_sprites.add(button_3)
     
-    contagem_txt = 0 # Serve para mudar os textos
+    contagem_txt = 13 # Serve para mudar os textos
     contagem_filha = 0 #Serve para acabar o jogo caso a filha fique brava
+    
+    MORTO = False
+    morto = game_screen(window, MORTO)
+    
     game = True
     while game:
         for event in pygame.event.get():
@@ -216,7 +220,13 @@ def tela_jogo(window):
                 if contagem_txt == 0:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                        contagem_txt = 1
+                        if px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
+                        
+                            contagem_txt = 1
+                    
+                        elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                            game = False      
                         
                 elif contagem_txt == 1:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
@@ -334,9 +344,10 @@ def tela_jogo(window):
                 elif contagem_txt == 14:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         # contagem_txt = 15
+                         #contagem_txt = 15
                          game_screen(window, morto)  # Inicia o mini game 
-                         if morto == False:
+                         # morto = game_screen(window, morto)
+                         if MORTO == False:
                              contagem_txt = 15
                          else:
                              game = False
@@ -815,32 +826,36 @@ def tela_jogo(window):
                 elif contagem_txt == 73:
                     if px > 0 and px < WIDTH and py > 0 and py < HEIGHT:
                         
-                         contagem_txt = 74
+                        if px > 277 and px < 523 and py > 520 and py < 590: # Botão 2
                         
-                    game = False
+                            contagem_txt = 1
+                    
+                        elif px > 537 and px < 784 and py > 520 and py < 590: # Botão 3
+                        
+                            game = False
                          
             
         #Todas as falas e textos do jogo
                        
         if contagem_txt == 0:
-            dialogo_1_1 = ''
+            dialogo_1_1 = 'Escolha um dos dois:'
             dialogo_1_2 = ''
             
-            dialogo_2_1 = ''
+            dialogo_2_1 = 'Start game'
             dialogo_2_2 = ''
             
-            dialogo_3_1 = ''
+            dialogo_3_1 = 'Quit game'
             dialogo_3_2 = ''
             
-            text_1 = ''
-            text_2 = ''
+            text_1 = 'Bem vindo ao nosso jogo. Voce agora vai entrar nos pés de um pai de família tentando manter sua filhia viva no fim'
+            text_2 = 'do mundo. O que voce vai experênciar é uma simulação de como seria o fim do mundo (provavelmente).'
             text_3 = ''
             text_4 = ''
             text_5 = ''
-            text_6 = ''
-            text_7 = ''
-            text_8 = ''
-            text_9 = ''
+            text_6 = 'Criado por:'
+            text_7 = 'Pedro Ball'
+            text_8 = 'Enzo Cardoso'
+            text_9 = 'Luis Fernando'
          
         elif contagem_txt == 1:
             dialogo_1_1 = ''
@@ -2286,13 +2301,13 @@ def tela_jogo(window):
             text_9 = ''
             #acabou
         elif contagem_txt == 73:
-            dialogo_1_1 = ''
+            dialogo_1_1 = 'Escolha um dos dois:'
             dialogo_1_2 = ''
             
-            dialogo_2_1 = ''
+            dialogo_2_1 = 'Restart game'
             dialogo_2_2 = ''
             
-            dialogo_3_1 = ''
+            dialogo_3_1 = 'Quit game'
             dialogo_3_2 = ''
             
             text_1 = '"THE END"'
@@ -2447,9 +2462,13 @@ def tela_jogo(window):
             window.fill(BLACK)
             window.blit(recursos['34'], (0, 0))
             all_sprites.draw(window)
-        elif contagem_txt >= 72:
+        elif contagem_txt == 72:
             window.fill(BLACK)
             window.blit(recursos['35'], (0, 0))
+            all_sprites.draw(window)
+        elif contagem_txt == 73:
+            window.fill(BLACK)
+            window.blit(recursos['36'], (0, 0))
             all_sprites.draw(window)
             
 # GAME OVER

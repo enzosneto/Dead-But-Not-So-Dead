@@ -15,12 +15,12 @@ from teste_game_screen import game_screen
 
 pygame.init()
 pygame.mixer.init()
-
+morto = False
 # ----- Gera tela principal
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Mini_game')
 
-game_screen(window)
+game_screen(window,morto)
 
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
